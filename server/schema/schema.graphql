@@ -1,0 +1,37 @@
+type Query {
+    user(id: ID!): User 
+    books: [Book!]!
+    book(id: ID!): Book! 
+}
+
+type Mutation {
+    addUser(data: adduserInput!): User!
+    addBook(data: addBookInput! ): Book!
+}
+
+type User {
+    id: ID!
+    name: String!
+    password: String!
+    books: [Book!]
+}
+
+type Book {
+    id: ID!
+    title: String!
+    cover_image_url: String!
+    average_rating: Float!
+    author: User!
+}
+
+input adduserInput {
+    name: String!
+    password: String!
+}
+
+input addBookInput {
+    title: String!
+    cover_image_url: String!
+    average_rating: Float!
+    author: ID!
+}

@@ -1,0 +1,14 @@
+type User {
+  id: ID! @unique
+  name: String!
+  password: String!
+  books: [Book]! @relation(name: "BookToUser", onDelete: CASCADE)
+}
+
+type Book {
+  id: ID! @unique
+  title: String!
+  cover_image_url: String!
+  average_rating: Float!
+  author: User! @relation(name: "BookToUser")
+}

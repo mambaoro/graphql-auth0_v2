@@ -1,0 +1,11 @@
+endpoint: https://eu1.prisma.sh/mamadou-baoro/auth0-app/dev
+datamodel: datamodel.prisma
+secret: 'supersecret'
+
+generate:
+  - generator: javascript-client
+    output: ./generated/prisma-client/
+
+hooks:
+  post-deploy:
+    - prisma generate
